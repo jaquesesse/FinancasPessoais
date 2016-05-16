@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">  -->
 	<title> <?= $titulo ?> - Controle de Finanças Pessoais</title>
 
 </head>
@@ -22,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="container">
 						<label for="senha">Senha</label><span class="erro"><?php echo form_error('senha') ?  : ''; ?></span>
-						<input type="text" name="senha" id="senha" class="form-control" value="<?= set_value('senha') ? : (isset($senha) ? $senha : ''); ?>" />
+						<input type="password" name="senha" id="senha" class="form-control" value="<?= set_value('senha') ? : (isset($senha) ? $senha : ''); ?>" />
 					</div>
 					<div class="container">
 						<label for="nome">Nome</label><span class="erro"><?php echo form_error('nome') ?  : ''; ?></span>

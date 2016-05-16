@@ -62,7 +62,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$variavel['mensagem'] = "Erro ao gravar. Tente novamente.";
 					$this->load->view('errors/html/erro_v');
 				}
-				//criar as views erro_v e sucesso_v na pasta errors/html
 			}
 
 		}//fim da funcao salvar
@@ -101,6 +100,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('errors/html/erro_v');
 			}
 		}
+
+		public function autenticar(){
+			//iniciando a sessao
+			$this->load->library('session');
+
+			$this->load->model("LoginCadastro_m");
+			$usuario = $this->input->post("usuario");
+			$senha = $this->input->post("senha");
+			$usuario = $this->LoginCadastro_m->validarLogin($usuario, $senha);
+
+			if($usuario){
+				$this->session->set_userdata("logado", $usuario);
+				$this->load->view('Principal_v');
+
+			} else  {
+				$variavel['mensagem'] = "Erro ao fazer login. Usuário/Senha incorretos.";
+				$this->load->view('errors/html/erro_v', $variavel);
+			}
+
+		}//fim autenticar
+
+		public function logout(){
+			$this->load->library('session');
+
+			$this->session->sess_destroy();
+			$variavel['mensagem'] = "Obrigada por utilizar este sistema.";
+			$this->load->view('errors/html/erro_v', $variavel);
+		}//fim logout
+
+
 
 	}
 ?>

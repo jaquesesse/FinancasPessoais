@@ -3,6 +3,7 @@
 
 class LoginCadastro_m extends CI_Model{
 
+	
 	public function salvar($dados = null, $id=null){
 	  //Grava os dados na tabela.
 	 //param $dados. Array que contém os campos a serem inseridos
@@ -25,10 +26,11 @@ class LoginCadastro_m extends CI_Model{
 			}
 
 		}
-	}
+	}//fim salvar
 
 
-			public function get($id = null){
+			public function get($id = null)
+			{
 				//metodo para retornar os registros que há no banco.
 					/**
 			 		* Recupera o registro do banco de dados
@@ -36,19 +38,24 @@ class LoginCadastro_m extends CI_Model{
 			 		* return objeto da banco de dados da tabela cadastros
 			 		*/
 				
-				if ($id) {
-					$this->db->where('id', $id);
-				}
-					$this->db->order_by("id", 'desc');
-					return $this->db->get('usuario');
-				}
+						if ($id) {
+							$this->db->where('id', $id);
+						}
+							$this->db->order_by("id", 'desc');
+							return $this->db->get('usuario');
+			}//fim get
 
-		public function excluir($id = null){
-			if ($id) {
-				return $this->db->where('id', $id)->delete('cadastros');
-			}
+			
+			public function validarLogin($usuario, $senha)
+			{
+				$this->db->where("user", $usuario);
+				$this->db->where("senha", $senha);
+				$usuario = $this->db->get("usuario")->row_array();
+				return $usuario;
 
-		}
+			}//fim da função validar login
+
+		
 
 	}//fin da classe
 ?>
