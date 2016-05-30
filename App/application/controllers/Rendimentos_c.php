@@ -6,6 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');	//pega as inform
 class Rendimentos_c extends CI_Controller {
         
         //pega os dados da tabela e trata
+
+   
 }
 
     
