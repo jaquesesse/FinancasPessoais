@@ -25,29 +25,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container">
 		<h1 class="text-center">Finanças:</h1>
 		<div class="col-md-12">
-
-            <table border="1" class="table table-striped">
+		<form action="POST" ></form>
+            <table border="1" class="table table-striped" >
 					<thead>
 						<tr>
                                 <th>Categoria</th>
                                 <th>Valor (R$)</th>
                                 <th>Total (R$)</th>
+                                <th>Acoes</th>
 						</tr>
 					</thead>
 					<tr><!--linha(tabel row)-->
 							<td>Categoria 1 </td><!--(table data)-->
 							<td> valor 2</td>
 							<td> valor </td>
-						</tr>
+                        <td>  <button name="excluir" value="excluir">Excluir</button>
+                            <button name="atualizar" value="atualizar">Atualizar</button></td>
+                    </tr>
 					<tr>
+						<? foreach($rendimentos->result() as $cadastro): ?>
+							<tr>
+								<td><?= $rendimentos->id ?></td>
+								<td><?= $rendimentos->nome ?></td>
+								<td><?= $cadastro->telefone ?></td>
+								<td><?= $cadastro->email ?></td>
+								<td><?= $cadastro->observacoes ?></td>
+								<td><?= anchor("cadastro/edit/$cadastro->id", "Editar") ?>
+									| <a href="#" class='confirma_exclusao' data-id="<?= $cadastro->id ?>" data-nome="<?= $cadastro->nome ?>" />Excluir</a></td>
+							</tr>
+						<? endforeach; ?>
 						<td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
+                        <td>  <button name="excluir" value="excluir">Excluir</button>
+                            <button name="atualizar" value="atualizar">Atualizar</button></td>
 					</tr>
 				</table>
-            <button name="incluir" value="excluir">Incluir</button>
-            <button name="excluir" value="excluir">Excluir</button>
-            <button name="atualizar" value="atualizar">Atualizar</button>
+            <button name="incluir" type="submit" value="excluir">Incluir</button>
+
 					<h4>Nenhum registro cadastrado.</h4>
 			</div>
 		</div>	

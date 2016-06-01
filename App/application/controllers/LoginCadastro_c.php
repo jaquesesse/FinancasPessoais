@@ -109,10 +109,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$usuario = $this->input->post("usuario");
 			$senha = $this->input->post("senha");
 			$usuario = $this->LoginCadastro_m->validarLogin($usuario, $senha);
-
+			//apos validação de login
 			if($usuario){
 				$this->session->set_userdata("logado", $usuario);
+				//pegar id de usuario, fazer requisizao de dados de despesas e rendeimentos do mesmo no banco a partir de seu id
+				$this->
 				$this->load->view('Principal_v');
+				
 
 			} else  {
 				$variavel['mensagem'] = "Erro ao fazer login. Usuário/Senha incorretos.";
