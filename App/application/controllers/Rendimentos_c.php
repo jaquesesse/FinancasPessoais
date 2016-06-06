@@ -11,8 +11,9 @@ class Rendimentos_c extends CI_Controller {
     {
 
         
+        
        
-        $this->load->view("Principal",$dados);
+        $this->load->view("Principal", $dados);
         
     }
 		
