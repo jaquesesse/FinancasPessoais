@@ -18,7 +18,8 @@ class Rendimentos_m extends CI_Model
             $this->db->where('id', $id);
         }
         $this->db->order_by("id", 'desc');
-        return $this->db->get('rendimentos');
+        $despesa = $this->db->get('extrato'); //despesas
+        return $despesa;
     }
 
 

@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if($cadastro->num_rows() > 0){
 					$variavel['titulo'] = 'Editar Cadastro de Login';
 					$variavel['id'] = $cadastro->row()->id;
-					$variavel['usuario'] = $cadastro->row()->usuario;
+					$variavel['usuario'] = $cadastro->row()->user;
 					$variavel['senha'] = $cadastro->row()->senha;
 					$variavel['nome'] = $cadastro->row()->nome;
 
@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				} else {
 					$variavel['mensagem'] = "Registro não encontrado.";
-					$this->load->view('errors/html/erro_v');
+					$this->load->view('errors/html/erro_v', $variavel);
 				}
 
 			}
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function autenticar(){
 			//iniciando a sessao
-			$this->load->library('session');
+			//$this->load->library('session');
 
 			$this->load->model("LoginCadastro_m");
 			$usuario = $this->input->post("usuario");
@@ -111,10 +111,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$usuario = $this->LoginCadastro_m->validarLogin($usuario, $senha);
 			//apos validação de login
 			if($usuario){
-				$this->session->set_userdata("logado", $usuario);
+				//$this->session->set_userdata("logado", $usuario);
 				//pegar id de usuario, fazer requisizao de dados de despesas e rendeimentos do mesmo no banco a partir de seu id
-				$this->
-				$this->load->view('Principal_v');
+				$results = $usuario->result_array();
+				print_r($results);
+				redirect("Rendimentos_c", $results->id);
+				//$variavel['usuario'] = $usuario;
+				//$this->load->view('Principal_v', $variavel);
 				
 
 			} else  {
@@ -125,12 +128,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}//fim autenticar
 
 		public function logout(){
-			$this->load->library('session');
+			//$this->load->library('session');
 
-			$this->session->sess_destroy();
+			//$this->session->sess_destroy();
 			$variavel['mensagem'] = "Obrigada por utilizar este sistema.";
 			$this->load->view('errors/html/erro_v', $variavel);
 		}//fim logout
+
+		public function carregarP($resConsulta){
+			$dados['rendimentos'] = $resConsulta;
+			$this->load->view('Principal_v', $dados);
+
+		}
 
 
 

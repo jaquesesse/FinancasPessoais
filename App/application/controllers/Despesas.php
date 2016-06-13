@@ -8,12 +8,6 @@
  */
 class Despesas
 {
-    public $categoria;
-    public $usario;
-    public $valor;
-    public $total;
-
-
     public function calculoDespesa($valorAtual){
 
     }

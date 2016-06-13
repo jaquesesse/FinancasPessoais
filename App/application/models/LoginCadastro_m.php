@@ -50,7 +50,7 @@ class LoginCadastro_m extends CI_Model{
 			{
 				$this->db->where("user", $usuario);
 				$this->db->where("senha", $senha);
-				$usuario = $this->db->get("usuario")->row_array();
+				$usuario = $this->db->get("usuario");
 				return $usuario;
 
 			}//fim da função validar login

@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 			<div class="row text-center">
-				<?= anchor('', 'Login');  ?>
+				<?= anchor('Principal_v', 'Pagina inicial');  ?>
 			</div>
 		</div>	
 	</div>
