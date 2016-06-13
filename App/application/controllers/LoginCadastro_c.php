@@ -113,11 +113,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($usuario){
 				//$this->session->set_userdata("logado", $usuario);
 				//pegar id de usuario, fazer requisizao de dados de despesas e rendeimentos do mesmo no banco a partir de seu id
+<<<<<<< HEAD
 				$results = $usuario->result_array();
 				print_r($results);
 				redirect("Rendimentos_c", $results->id);
 				//$variavel['usuario'] = $usuario;
 				//$this->load->view('Principal_v', $variavel);
+=======
+
+				$variavel['usuario'] = $usuario;
+				$this->load->view('Principal_v', $variavel);
+>>>>>>> origin/master
 				
 
 			} else  {

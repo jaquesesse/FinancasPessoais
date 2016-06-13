@@ -7,6 +7,7 @@ class Rendimentos_c extends CI_Controller {
         
         //pega os dados da tabela e trata
 
+<<<<<<< HEAD
     function index($idUsr = null){
         $this->load->model("Rendimentos_m");
         $dados['rendimentos']=$this->Rendimentos_m->get($idUsr);
@@ -23,6 +24,12 @@ class Rendimentos_c extends CI_Controller {
 
        // $dados['desepesas']=$this->Rendimentos_m->get($idUsuario);
        
+=======
+        
+        
+       
+        $this->load->view("Principal", $dados);
+>>>>>>> origin/master
         
 
     }

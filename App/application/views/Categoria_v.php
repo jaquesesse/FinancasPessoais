@@ -43,7 +43,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php endif; ?>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<?= anchor("Categoria_c/carregar", "Voltar") ?>
+=======
+>>>>>>> origin/master
 
 </body>
 </html>
